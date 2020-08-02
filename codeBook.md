@@ -18,10 +18,13 @@ First, the global environment is cleared by using the first command below and th
 
 The working directory is then set.
 ```{r 1steps}
+## Clear working directory
 rm(list = ls())
 
+## Load dplyr for cleaning data.
 library(dplyr)
 
+## Set working directory
 setwd("G:/My Drive/R/Module3/Week4/project/Getting-and-Cleaning-Data")
 ```
 
@@ -29,10 +32,13 @@ setwd("G:/My Drive/R/Module3/Week4/project/Getting-and-Cleaning-Data")
 In the next step, the URL to the data in a zip file is stored in the global environment. Two if statements are the used, the one to download the file, if it has not yet been done, and the second to unzip the file, again only if this has not yet been done. 
 
 ```{r files}
+## Url to zip  file containg the data
 zipURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 
+## downloading the data
 if(!file.exists("./data/project_data.zip") == T){download.file(zipURL, "./data/project_data.zip")}
 
+## Unzipping the zip file
 if(!file.exists("./data/UCI HAR Dataset") == T){unzip("./data/project_data.zip", exdir = "./data")}
 ```
 
